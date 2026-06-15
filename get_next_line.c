@@ -6,13 +6,13 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/15 12:47:49 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/06/15 13:12:44 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *read_til_newline(char *storage, int fd) //read + append, i probably have to split this
+char *read_n_append(char *storage, int fd)
 {
 	char		*chunk;
 	ssize_t 	bytes;

@@ -1,0 +1,43 @@
+EVAL SHEET
+
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	fd = open(argv[1], O_RDONLY);
+	i = 1;
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("CALL %d:\n", i);
+		printf("%s", line);
+		printf("----------------\n");
+		free(line);
+		i++;
+	}
+	close(fd);
+	return (0);
+}
+
+Error management
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+    Pass an arbitrary, invalid file descriptor (e.g., 42) to get_next_line. The function must return NULL.
+    Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+
+standard input
+echo "hello" > exact.txt
+-D BUFFER_SIZE=5 and then ./a.out exact.txt then see what it prints
+
+create a long text into the file
+python3 -c "print('A'*5000)" > long.txt
+gcc -D BUFFER_SIZE=1 *.c
+./a.out long.txt

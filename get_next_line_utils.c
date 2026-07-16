@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:03:01 by suyoun            #+#    #+#             */
-/*   Updated: 2026/06/15 12:47:26 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/07/15 13:43:41 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char		*joined;
 	char		*start;
 
-	if (!s1 && !s2)
-		return (NULL);
 	if (!s1)
 		s1 = "";
 	if (!s2)
@@ -48,4 +46,17 @@ char	*ft_strchr(const char *s, int c)
 	if ((char)c == '\0')
 		return ((char *)s);
 	return (NULL);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (*s)
+	{
+		i++;
+		s++;
+	}
+	return (i);
 }

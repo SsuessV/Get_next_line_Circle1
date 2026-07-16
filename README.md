@@ -113,7 +113,6 @@ This approach is optimal for streaming input where data is processed incremental
 * The C Programming Language – Kernighan & Ritchie
 * POSIX `read()` manual
 * 42 Intra subject documentation
-* Memory management in C tutorials
 
 ### Helpful Links
 
@@ -125,7 +124,7 @@ This approach is optimal for streaming input where data is processed incremental
 AI tools (such as ChatGPT) were used in this project for:
 
 * Clarifying concepts related to static variables and file descriptors
-* Understanding edge cases (EOF handling, empty files, etc.)
+* Understanding edge cases (EoF handling, empty files, etc.)
 * Reviewing algorithm design and improving readability
 * Debugging assistance and code explanation
 

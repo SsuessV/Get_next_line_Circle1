@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/07/16 14:15:34 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/07/16 14:24:15 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int	main(int argc, char **argv)
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("CALL %d:\n", i);
-		printf("[%s]\n", line);
+		printf("%s", line);
 		printf("----------------\n");
 		free(line);
 		i++;

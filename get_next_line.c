@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/07/16 09:32:27 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/07/16 14:15:34 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,29 +126,34 @@ char	*get_next_line(int fd)
 	storage = update_storage(storage);
 	return (line);
 }
-
 /*
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
 	int		i;
 
-	fd = open("test.txt", O_RDONLY);
-	i = 1;
+	if (argc != 2)
+		return (1);
 
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		return (1);
+
+	i = 1;
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		printf("CALL %d :\n", i);
+		printf("CALL %d:\n", i);
 		printf("[%s]\n", line);
 		printf("----------------\n");
 		free(line);
 		i++;
 	}
+
 	close(fd);
 	return (0);
 }

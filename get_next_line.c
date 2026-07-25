@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/07/16 15:16:03 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/07/26 00:08:03 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*read_n_append(char *storage, int fd)
 	chunk = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!chunk)
 		return (NULL);
-	while (1)
+	while (42)
 	{
 		bytes = read(fd, chunk, BUFFER_SIZE);
-		if (bytes < 0)
+		if (bytes == -1)
 			return (free(chunk), free(storage), NULL);
 		if (bytes == 0)
 			break ;
@@ -131,16 +131,13 @@ char	*get_next_line(int fd)
 #include <fcntl.h>
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+int	main()
 {
 	int		fd;
 	char	*line;
 	int		i;
 
-	if (argc != 2)
-		return (1);
-
-	fd = open(argv[1], O_RDONLY);
+	fd = open(test.txt, O_RDONLY);
 	if (fd < 0)
 		return (1);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/07/26 00:08:03 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/07/26 16:56:40 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,8 @@ int	main()
 	char	*line;
 	int		i;
 
+	if (argc != 2)
+		return (1);
 	fd = open(test.txt, O_RDONLY);
 	if (fd < 0)
 		return (1);

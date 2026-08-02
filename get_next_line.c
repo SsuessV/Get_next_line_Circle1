@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/07/26 00:08:03 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/08/02 20:11:51 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,37 @@
 
 char	*read_n_append(char *storage, int fd)
 {
-	char		*chunk;
+	char		*temp_buf;
 	ssize_t		bytes;
 
-	chunk = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!chunk)
+	temp_buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!temp_buf)
 		return (NULL);
 	while (42)
 	{
-		bytes = read(fd, chunk, BUFFER_SIZE);
+		bytes = read(fd, temp_buf, BUFFER_SIZE);
 		if (bytes == -1)
-			return (free(chunk), free(storage), NULL);
+			return (free(temp_buf), free(storage), NULL);
 		if (bytes == 0)
 			break ;
-		chunk[bytes] = '\0';
-		storage = join_and_free(storage, chunk);
+		temp_buf[bytes] = '\0';
+		storage = join_and_free(storage, temp_buf);
 		if (!storage)
-			return (free(chunk), NULL);
-		if (ft_strchr(chunk, '\n'))
+			return (free(temp_buf), NULL);
+		if (ft_strchr(temp_buf, '\n'))
 			break ;
 	}
-	free(chunk);
+	free(temp_buf);
 	if (storage && storage[0] == '\0')
 		return (free(storage), NULL);
 	return (storage);
 }
 
-char	*join_and_free(char *storage, char *chunk)
+char	*join_and_free(char *storage, char *temp_buf)
 {
 	char	*new_storage;
 
-	new_storage = ft_strjoin(storage, chunk);
+	new_storage = ft_strjoin(storage, temp_buf);
 	free(storage);
 	return (new_storage);
 }
@@ -137,11 +137,17 @@ int	main()
 	char	*line;
 	int		i;
 
-	fd = open(test.txt, O_RDONLY);
+	fd = open("test.txt", O_RDONLY);
 	if (fd < 0)
 		return (1);
 
 	i = 1;
+	// line = get_next_line(fd);
+	// if (line)
+	// {
+	// 	printf("%s", line);
+	// 	free(line);
+	// }
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("CALL %d:\n", i);

@@ -88,24 +88,25 @@ For the bonus implementation, the static storage is extended to handle multiple 
 
 Each time `get_next_line` is called:
 
-1. Read data from the file descriptor into a temp_buf.
-2. Append this data to a static string (storage/stash).
-3. Check if a newline (`\n`) exists in the temp_buf.
+1. Read data from the file descriptor into a `temp_buf` up to the BUFFERSIZE.
+2. Append this data to a static string `storage`.
+3. Check if a newline (`\n`) exists in the `temp_buf`.
 4. If found:
 
    * Extract the line up to and including the newline.
    * Save the remaining part (in storage) for the next call.
 5. If not found:
 
-   * Continue reading until a newline or EOF is reached.
+   * Continue reading until a newline or EoF is reached.
 
 ---
 
 ## Resources
 
-* cppreference C documentation
-* POSIX manual pages
+* Cppreference C documentation
 * Linux man pages
+* YouTube tutorials
+* Discussions with 42 Peers
 
 
 ### AI Usage
@@ -113,10 +114,10 @@ Each time `get_next_line` is called:
 AI tools (such as ChatGPT) were used in this project for:
 
 * Clarifying concepts related to static variables and file descriptors
-* Understanding edge cases (EoF handling, empty files, etc.)
+* Understanding edge cases (EoF handling, empty files, long line without '\n' etc.)
 * Reviewing algorithm design and improving readability
 * Debugging assistance and code explanation
-* Helping write the main and test.txt file to test the codes
+* Helping write the main and test file for testing purpose
 
 No AI-generated code was used directly. AI was only used for explanations, debugging assistance, and reviewing ideas.  
 All code was written, tested, and validated manually.

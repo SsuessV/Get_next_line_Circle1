@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/08/03 14:26:36 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/08/03 15:31:49 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*update_storage(char *storage)
 {
 	int		i;
 	int		j;
-	char	*new_storage;
+	char	*leftover_storage;
 
 	i = 0;
 	while (storage[i] != '\0' && storage[i] != '\n')
@@ -92,18 +92,18 @@ char	*update_storage(char *storage)
 	j = 0;
 	while (storage[i + j] != '\0')
 		j++;
-	new_storage = malloc ((j + 1) * sizeof(char));
-	if (!new_storage)
+	leftover_storage = malloc ((j + 1) * sizeof(char));
+	if (!leftover_storage)
 		return (free(storage), NULL);
 	j = 0;
 	while (storage [i + j] != '\0')
 	{
-		new_storage[j] = storage[i + j];
+		leftover_storage[j] = storage[i + j];
 		j++;
 	}
-	new_storage[j] = '\0';
+	leftover_storage[j] = '\0';
 	free(storage);
-	return (new_storage);
+	return (leftover_storage);
 }
 
 char	*get_next_line(int fd)

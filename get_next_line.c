@@ -6,7 +6,7 @@
 /*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/08/02 20:11:51 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/08/03 14:15:35 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*extract_line(char *storage)
 	i = 0;
 	if (!storage)
 		return (NULL);
-	while (storage[i] != '\n' && storage[i] != '\0')
+	while (storage[i] != '\n' && storage[i])
 		i++;
 	new_line = malloc((i + 2) * sizeof(char));
 	if (!new_line)

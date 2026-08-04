@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suyoun <suyoun@student.42vienna.com>       +#+  +:+       +#+        */
+/*   By: suyoun <suyoun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 05:02:41 by suyoun            #+#    #+#             */
-/*   Updated: 2026/08/03 16:54:03 by suyoun           ###   ########.fr       */
+/*   Updated: 2026/08/04 18:27:58 by suyoun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ int	main()
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("CALL %d:\n", i);
-		printf("%s", line);
+		printf("'%s'", line);
 		printf("----------------\n");
 		free(line);
 		i++;
